@@ -105,6 +105,26 @@ void LevelOrderTraversal(struct Node* p)
     
 }
 
+int Height(struct Node* p) //Calculate height of binary tree
+{
+    if(p==NULL)
+        return 0;
+    int x= Height(p->lchild);
+    int y= Height(p->rchild);
+    if(x>y)
+        return x+1;
+    else
+        return y+1;
+}
+
+int Count_Nodes(struct Node* p)
+{
+    if(p==NULL)
+        return 0;
+    int x= Count_Nodes(p->lchild);
+    int y= Count_Nodes(p->rchild);
+    return x+y+1;    
+}
 
 int main()
 {
@@ -126,6 +146,12 @@ int main()
     cout<<"LevelOrderTraversal: ";
     LevelOrderTraversal(root);
     cout<<endl;
+
+    cout<<"Height of the tree: "<<Height(root)-1<<endl;
+    //Note: In actual height function is returning no. of level (i.e level starts from 1)
+    //So we deducted 1 at the end to output actual height (i.e. height starts from 0)
+
+    cout<<"Total No. of nodes in binary tree is "<<Count_Nodes(root)<< endl;
     
 }
 
@@ -140,7 +166,7 @@ Enter value for rchild of 10
 Enter value for lchild of 5
 4
 Enter value for rchild of 5
-8
+8 
 Enter value for lchild of 20
 15
 Enter value for rchild of 20
@@ -179,7 +205,9 @@ Enter value for rchild of 19
 -1
 
 PreOrder: 10 5 4 3 8 20 15 18 16 19 25 
-PostOrder: 3 4 8 5 16 19 18 15 25 20 10 
+PostOrder: 3 4 8 5 16 19 18 15 25 20 10
 InOrder: 3 4 5 8 10 15 16 18 19 20 25 
 LevelOrderTraversal: 10 5 20 4 8 15 25 3 18 16 19
+Height of the tree: 4
+Total No. of nodes in binary tree is 11
 */
