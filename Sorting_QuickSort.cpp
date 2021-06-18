@@ -28,7 +28,7 @@ int Partition(int* arr, int low,int high)
     return j; 
 }
 
-QuickSort(int* arr,int low, int high)
+void QuickSort(int* arr,int low, int high)
 {
     if(low<high)
     {
